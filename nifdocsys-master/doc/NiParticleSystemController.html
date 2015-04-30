@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiParticleSystemController</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiParticleSystemController</h2></center>
+A generic particle system time controller object.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiTimeController.html">NiTimeController</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Next Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Index of the next controller.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller flags (usually 0x000C). Probably controls loops.<br/>            Bit 0 : Anim type, 0=APP_TIME 1=APP_INIT<br/>            Bit 1-2 : Cycle type  00=Loop 01=Reverse 10=Loop<br/>            Bit 3 : Active<br/>            Bit 4 : Play backwards</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Frequency</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Frequency (is usually 1.0).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Phase</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Phase (usually 0.0).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Start Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller start time.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Stop Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller stop time.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Target</i></td>
+    <td><a href="Ptr.html"><b>Ptr<b></a>&lt;<a href="NiObjectNET.html">NiObjectNET</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller target (object index of the first controllable ancestor of this object).</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Integer</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown integer.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiParticleSystemController.html">NiParticleSystemController</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Old Speed</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle speed in old files</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Speed</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle speed</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Speed Random</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle random speed modifier</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertical Direction</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>vertical emit direction [radians]<br/>            0.0 : up<br/>            1.6 : horizontal<br/>            3.1416 : down</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Vertical Angle</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>emitter's vertical opening angle [radians]</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Horizontal Direction</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>horizontal emit direction</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Horizontal Angle</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>emitter's horizontal opening angle</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Normal?</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Color?</i></td>
+    <td><a href="Color4.html"><b>Color4<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Size</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle size</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Emit Start Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle emit start time</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Emit Stop Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle emit stop time</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Byte</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown byte, (=0)</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Old Emit Rate</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle emission rate in old files</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Emit Rate</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle emission rate (particles per second)</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Lifetime</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle lifetime</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Lifetime Random</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle lifetime random modifier</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Emit Flags</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Bit 0: Emit Rate toggle bit (0 = auto adjust, 1 = use Emit Rate value)</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Start Random</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle random start translation vector</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Emitter</i></td>
+    <td><a href="Ptr.html"><b>Ptr<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>This index targets the particle emitter object (TODO: find out what type of object this refers to).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Short 2?</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>? short=0 ?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Float 13?</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>? float=1.0 ?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 1?</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>? int=1 ?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 2?</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>? int=0 ?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Short 3?</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>? short=0 ?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Particle Velocity</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle velocity</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Particle Unknown Vector</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Particle Lifetime</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The particle's age.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Particle Link</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Particle Timestamp</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Timestamp of the last update.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Particle Unknown Short</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown short</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Particle Vertex Id</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Particle/vertex index matches array index</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Particles</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Size of the following array. (Maximum number of simultaneous active particles)</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Valid</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of valid entries in the following array. (Number of active particles at the time the system was saved)</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Particles</i></td>
+    <td><a href="Particle.html"><b>Particle<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Particles</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Individual particle modifiers?</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Link</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>unknown int (=0xffffffff)</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Particle Extra</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiParticleModifier.html">NiParticleModifier</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to some optional particle modifiers (NiGravity, NiParticleGrowFade, NiParticleBomb, ...)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Link 2</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown int (=0xffffffff)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Trailer</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Trailing null byte</td>
+    <td>4.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Color Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiColorData.html">NiColorData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Float 1</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Floats 2</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i>Particle Unknown Short</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+<li><a href="NiBSPArrayController.html">NiBSPArrayController</a></li>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - bhkPackedNiTriStripsShape</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>bhkPackedNiTriStripsShape</h2></center>
+A shape constructed from strips data.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkRefObject.html">bhkRefObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkSerializable.html">bhkSerializable</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkShape.html">bhkShape</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkShapeCollection.html">bhkShapeCollection</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkPackedNiTriStripsShape.html">bhkPackedNiTriStripsShape</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Num Sub Shapes</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of subparts.</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg1">
+    <td><i>Sub Shapes</i></td>
+    <td><a href="OblivionSubShape.html"><b>OblivionSubShape<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Sub Shapes</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The subparts.</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 1</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 2</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Looks like a memory pointer and may be garbage.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Float 1</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Same as Unknown Float 3</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 3</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Sometimes 0.0f or -1. but sometimes really large number.  Suspect its garbage.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Scale Copy?</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Same as scale below?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Float 2</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Usually 0.0 but sometimes 1.0.  Same as Unknown Float 4</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Float 3</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Same as Unknown Float 1</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Scale</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Scale.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Float 4</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Usually 0.0 but sometimes 1.0.  Same as Unknown Float 2</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="hkPackedNiTriStripsData.html">hkPackedNiTriStripsData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>A link to the shape's NiTriStripsData.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

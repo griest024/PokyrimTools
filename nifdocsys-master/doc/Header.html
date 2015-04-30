@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - Header</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>Header</h2></center>
+The NIF file header.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Header String</i></td>
+    <td><a href="HeaderString.html"><b>HeaderString<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>'NetImmerse File Format x.x.x.x' (versions <= 10.0.1.2) or 'Gamebryo File Format x.x.x.x' (versions >= 10.1.0.0), with x.x.x.x the version written out. Ends with a newline character (0x0A).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Copyright</i></td>
+    <td><a href="LineString.html"><b>LineString<b></a></td>
+    <td><i></i></td>
+    <td><i>3</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Version</i></td>
+    <td><a href="FileVersion.html"><b>FileVersion<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The NIF version, in hexadecimal notation: 0x04000002, 0x0401000C, 0x04020002, 0x04020100, 0x04020200, 0x0A000100, 0x0A010000, 0x0A020000, 0x14000004, ...</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Endian Type</i></td>
+    <td><a href="EndianType.html"><b>EndianType<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Determines the endianness of the data in the file.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>User Version</i></td>
+    <td><a href="ulittle32.html"><b>ulittle32<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>An extra version number, for companies that decide to modify the file format.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Blocks</i></td>
+    <td><a href="ulittle32.html"><b>ulittle32<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of file objects.</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>User Version 2</i></td>
+    <td><a href="ulittle32.html"><b>ulittle32<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>(userVersion >= 10) || ((userVersion == 1) && (version != 0x0A020000))</i></td>
+    <td>This also appears to be the extra user version number and must be set in some circumstances. Probably used by Bethesda to denote the Havok version.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 3</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Possibly User Version 2?</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Export Info</i></td>
+    <td><a href="ExportInfo.html"><b>ExportInfo<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.0.1.2</td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg1">
+    <td><i>Export Info</i></td>
+    <td><a href="ExportInfo.html"><b>ExportInfo<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>(userVersion >= 10) || ((userVersion == 1) && (version != 0x0A020000))</i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Block Types</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of object types in this NIF file.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Block Types</i></td>
+    <td><a href="SizedString.html"><b>SizedString<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Block Types</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>List of all object types used in this NIF file.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Block Type Index</i></td>
+    <td><a href="BlockTypeIndex.html"><b>BlockTypeIndex<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Blocks</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Maps file objects on their corresponding type: first file object is of type object_types[object_type_index[0]], the second of object_types[object_type_index[1]], etc.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Block Size</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Blocks</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Array of block sizes?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Strings</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of strings.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Max String Length</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Maximum string length.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Strings</i></td>
+    <td><a href="SizedString.html"><b>SizedString<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Strings</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Strings.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 2</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+
+</ul>
+</body>
+</html>

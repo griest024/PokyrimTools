@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiPSSimulatorGeneralStep</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiPSSimulatorGeneralStep</h2></center>
+Encapsulates a floodgate kernel that updates particle size, colors, and rotations.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiPSSimulatorStep.html">NiPSSimulatorStep</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiPSSimulatorGeneralStep.html">NiPSSimulatorGeneralStep</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Num Size Keys</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of size animation keys.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Size Keys</i></td>
+    <td><a href="Key.html"><b>Key<b></a>&lt;<a href="float.html">float</a>&gt;</td>
+    <td><i>1</i></td>
+    <td><i>Num Size Keys</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The particle size keys.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Size Loop Behavior</i></td>
+    <td><a href="PSLoopBehavior.html"><b>PSLoopBehavior<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The loop behavior for the size keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 1</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>20.6.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 2</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>20.6.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 3</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>20.6.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Color Keys</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of color animation keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Color Keys</i></td>
+    <td><a href="Key.html"><b>Key<b></a>&lt;<a href="ByteColor4.html">ByteColor4</a>&gt;</td>
+    <td><i>1</i></td>
+    <td><i>Num Color Keys</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The particle color keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Color Loop Behavior</i></td>
+    <td><a href="PSLoopBehavior.html"><b>PSLoopBehavior<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The loop behavior for the color keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Rotation Keys</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of rotatoin animation keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Rotation Keys</i></td>
+    <td><a href="QuatKey.html"><b>QuatKey<b></a>&lt;<a href="Quaternion.html">Quaternion</a>&gt;</td>
+    <td><i>1</i></td>
+    <td><i>Num Rotation Keys</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The particle rotation keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Rotation Loop Behavior</i></td>
+    <td><a href="PSLoopBehavior.html"><b>PSLoopBehavior<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The loop behavior for the rotation keys.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Grow Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The the amount of time over which a particle's size is ramped from 0.0 to 1.0 in seconds</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Shrink Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The the amount of time over which a particle's size is ramped from 1.0 to 0.0 in seconds</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Grow Generation</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Specifies the particle generation to which the grow effect should be applied. This is usually generation 0, so that newly created particles will grow.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Shrink Generation</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Specifies the particle generation to which the shrink effect should be applied. This is usually the highest supported generation for the particle system, so that particles will shrink immediately before getting killed.</td>
+    <td>30.0.0.2</td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

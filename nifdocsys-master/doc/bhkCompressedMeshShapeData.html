@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - bhkCompressedMeshShapeData</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>bhkCompressedMeshShapeData</h2></center>
+A compressed mesh shape for collision in Skyrim.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkRefObject.html">bhkRefObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkCompressedMeshShapeData.html">bhkCompressedMeshShapeData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Bits Per Index</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of bits in the shape-key reserved for a triangle index</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bits Per W Index</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of bits in the shape-key reserved for a triangle index and its winding</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Mask W Index</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Mask used to get the triangle index and winding from a shape-key (common: 262143 = 0x3ffff)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Mask Index</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Mask used to get the triangle index from a shape-key (common: 131071 = 0x1ffff)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Error</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The radius of the storage mesh shape? Quantization error?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bounds Min</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The minimum boundary of the AABB (the coordinates of the corner with the lowest numerical values)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Bounds Max</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The maximum boundary of the AABB (the coordinates of the corner with the highest numerical values)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Byte 1</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 3</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 4</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 5</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Byte 2</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Materials</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of chunk materials</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Chunk Materials</i></td>
+    <td><a href="bhkCMSDMaterial.html"><b>bhkCMSDMaterial<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Materials</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Table (array) with sets of materials. Chunks refers to this table by index.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 6</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Transforms</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of chunk transformations</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Chunk Transforms</i></td>
+    <td><a href="bhkCMSDTransform.html"><b>bhkCMSDTransform<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Transforms</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Table (array) with sets of transformations. Chunks refers to this table by index.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Big Verts</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Big Verts</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Big Verts</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Compressed Vertices?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Big Tris</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Big Tris</i></td>
+    <td><a href="bhkCMSDBigTris.html"><b>bhkCMSDBigTris<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Big Tris</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Chunks</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Chunks</i></td>
+    <td><a href="bhkCMSDChunk.html"><b>bhkCMSDChunk<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Chunks</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 12</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown, end of block.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

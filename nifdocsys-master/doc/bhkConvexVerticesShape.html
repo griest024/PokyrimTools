@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - bhkConvexVerticesShape</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>bhkConvexVerticesShape</h2></center>
+A convex shape built from vertices. Note that if the shape is used in<br/>        a non-static object (such as clutter), then they will simply fall<br/>        through ground when they are under a bhkListShape.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkRefObject.html">bhkRefObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkSerializable.html">bhkSerializable</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkShape.html">bhkShape</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkSphereRepShape.html">bhkSphereRepShape</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Material</i></td>
+    <td><a href="HavokMaterial.html"><b>HavokMaterial<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The shape's material.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Skyrim Material</i></td>
+    <td><a href="SkyrimHavokMaterial.html"><b>SkyrimHavokMaterial<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The shape's material.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Radius</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The radius of the sphere that encloses the shape.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkConvexShape.html">bhkConvexShape</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="bhkConvexVerticesShape.html">bhkConvexVerticesShape</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 6 Floats</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i>6</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown. Must be (0.0,0.0,-0.0,0.0,0.0,-0.0) for arrow detection to work (mind the minus signs, -0.0 is 0x80000000 in hex).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Vertices</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of vertices.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Vertices</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Vertices. Fourth component is 0. Lexicographically sorted.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Normals</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of half spaces.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Normals</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Normals</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Half spaces as determined by the set of vertices above. First three components define the normal pointing to the exterior, fourth component is the signed distance of the separating plane to the origin: it is minus the dot product of v and n, where v is any vertex on the separating plane, and n is the normal. Lexicographically sorted.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

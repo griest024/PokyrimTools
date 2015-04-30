@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - bhkCMSDChunk</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>bhkCMSDChunk</h2></center>
+Defines subshape chunks in bhkCompressedMeshShapeData
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Translation</i></td>
+    <td><a href="Vector4.html"><b>Vector4<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Local translation</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Material Index</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Index of material in bhkCompressedMeshShapeData::Chunk Materials</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Short 1</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Always 65535?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Transform Index</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Index of transformation in bhkCompressedMeshShapeData::Chunk Transforms</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Vertices</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of compressed vertices</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Compressed vertices</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Indices</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Indices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Indices</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Strips</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of compressed strips</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Strips</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Strips</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Compressed strips</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Indices 2</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Indices 2</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Indices 2</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Compressed</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="bhkCompressedMeshShapeData.html">bhkCompressedMeshShapeData</a></li>
+
+</ul>
+</body>
+</html>

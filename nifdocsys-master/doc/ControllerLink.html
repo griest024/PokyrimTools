@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - ControllerLink</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>ControllerLink</h2></center>
+In a .kf file, this links to a controllable object, via its name (or for version 10.2.0.0 and up, a link and offset to a NiStringPalette that contains the name), and a sequence of interpolators that apply to this controllable object, via links.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Target Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of a controllable object in another NIF file.</td>
+    <td></td>
+    <td>10.1.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to a controller.</td>
+    <td></td>
+    <td>10.1.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Interpolator</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiInterpolator.html">NiInterpolator</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to an interpolator.</td>
+    <td>10.1.0.106</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown link. Usually -1.</td>
+    <td>10.1.0.106</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Link 2</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Short 0</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg0">
+    <td><i>Priority</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Idle animations tend to have low values for this, and NIF objects that have high values tend to correspond with the important parts of the animation.</td>
+    <td>10.1.0.106</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>String Palette</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiStringPalette.html">NiStringPalette</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Refers to the NiStringPalette which contains the name of the controlled NIF object.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>Node Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The name of the animated node.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg1">
+    <td><i>Node Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The name of the animated node.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Node Name Offset</i></td>
+    <td><a href="StringOffset.html"><b>StringOffset<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Offset in the string palette where the name of the controlled node (NiNode, NiTriShape, ...) starts.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg1">
+    <td><i>Property Type</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of the property (NiMaterialProperty, ...), if this controller controls a property.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg0">
+    <td><i>Property Type</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of the property (NiMaterialProperty, ...), if this controller controls a property.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Property Type Offset</i></td>
+    <td><a href="StringOffset.html"><b>StringOffset<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Offset in the string palette where the property (NiMaterialProperty, ...) starts, if this controller controls a property. Otherwise, -1.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>Controller Type</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Probably the object type name of the controller in the NIF file that is child of the controlled object.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg1">
+    <td><i>Controller Type</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Probably the object type name of the controller in the NIF file that is child of the controlled object.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Controller Type Offset</i></td>
+    <td><a href="StringOffset.html"><b>StringOffset<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Apparently the offset in the string palette of some type of controller related to Interpolator (for example, a 'NiTransformInterpolator' will have here a 'NiTransformController', etc.). Sometimes the type of controller that links to the interpolator. Probably it refers to the controller in the NIF file that is child of the controlled object, via its type name.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg1">
+    <td><i>Variable 1</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Some variable string (such as 'SELF_ILLUM', '0-0-TT_TRANSLATE_U', 'tongue_out', etc.).</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg0">
+    <td><i>Variable 1</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Some variable string (such as 'SELF_ILLUM', '0-0-TT_TRANSLATE_U', 'tongue_out', etc.).</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Variable 1 Offset</i></td>
+    <td><a href="StringOffset.html"><b>StringOffset<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Offset in the string palette where some variable string starts (such as 'SELF_ILLUM', '0-0-TT_TRANSLATE_U', 'tongue_out', etc.). Usually, -1.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>Variable 2</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Another variable string, apparently used for particle system controllers.</td>
+    <td>10.1.0.106</td>
+    <td>10.1.0.106</td>
+</tr>
+<tr class="reg1">
+    <td><i>Variable 2</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Another variable string, apparently used for particle system controllers.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Variable 2 Offset</i></td>
+    <td><a href="StringOffset.html"><b>StringOffset<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Offset in the string palette where some variable string starts (so far only 'EmitterActive' and 'BirthRate' have been observed in official files, used for particle system controllers). Usually, -1.</td>
+    <td>10.2.0.0</td>
+    <td>20.0.0.5</td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="NiSequence.html">NiSequence</a></li>
+
+</ul>
+</body>
+</html>

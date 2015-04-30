@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiGeometryData</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiGeometryData</h2></center>
+Mesh data: vertices, vertex normals, etc.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiGeometryData.html">NiGeometryData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown identifier. Always 0.</td>
+    <td>10.2.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Vertices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>!IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Number of vertices.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Vertices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Number of vertices.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>BS Max Vertices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Bethesda uses this for max number of particles in NiPSysData.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Keep Flags</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Used with NiCollision objects when OBB or TRI is set.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Compress Flags</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Vertices</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Is the vertex array present? (Always non-zero.)</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertices</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasVertices</i></td>
+    <td>The mesh vertices.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num UV Sets</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Flag for tangents and bitangents in upper byte. Texture flags in lower byte.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>BS Num UV Sets</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Bethesda's version of this field for nif versions 20.2.0.7 and up. Only a single bit denotes whether uv's are present. For example, see meshes/architecture/megaton/megatonrampturn45sml.nif in Fallout 3.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 2</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>!IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Unknown, seen in Skyrim.</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Normals</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have lighting normals? These are essential for proper lighting: if not present, the model will only be influenced by ambient light.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Normals</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasNormals</i></td>
+    <td>The lighting normals.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Tangents</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasNormals && ((numUvSets & 61440) || (bsNumUvSets & 61440))</i></td>
+    <td>Tangent vectors.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Bitangents</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasNormals && ((numUvSets & 61440) || (bsNumUvSets & 61440))</i></td>
+    <td>Bitangent vectors.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Center</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Center of the bounding box (smallest box that contains all vertices) of the mesh.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Radius</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Radius of the mesh: maximal Euclidean distance between the center and all vertices.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 13 shorts</i></td>
+    <td><a href="short.html"><b>short<b></a></td>
+    <td><i></i></td>
+    <td><i>13</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown, always 0?</td>
+    <td>20.3.0.9</td>
+    <td>20.3.0.9</td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Vertex Colors</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have vertex colors? These are usually used to fine-tune the lighting of the model.<br/><br/>            Note: how vertex colors influence the model can be controlled by having a NiVertexColorProperty object as a property child of the root node. If this property object is not present, the vertex colors fine-tune lighting.<br/><br/>            Note 2: set to either 0 or 0xFFFFFFFF for NifTexture compatibility.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertex Colors</i></td>
+    <td><a href="Color4.html"><b>Color4<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasVertexColors</i></td>
+    <td>The vertex colors.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num UV Sets</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The lower 6 (or less?) bits of this field represent the number of UV texture sets. The other bits are probably flag bits. For versions 10.1.0.0 and up, if bit 12 is set then extra vectors are present after the normals.</td>
+    <td></td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Has UV</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have UV coordinates?<br/><br/>            Note: for compatibility with NifTexture, set this value to either 0x00000000 or 0xFFFFFFFF.</td>
+    <td></td>
+    <td>4.0.0.2</td>
+</tr>
+<tr class="reg0">
+    <td><i>UV Sets</i></td>
+    <td><a href="TexCoord.html"><b>TexCoord<b></a></td>
+    <td><i></i></td>
+    <td><i>Num UV Sets & 63</i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td>The UV texture coordinates. They follow the OpenGL standard: some programs may require you to flip the second coordinate.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Consistency Flags</i></td>
+    <td><a href="ConsistencyType.html"><b>ConsistencyType<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Consistency Flags</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Consistency Flags</i></td>
+    <td><a href="ConsistencyType.html"><b>ConsistencyType<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>!IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Consistency Flags</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Additional Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="AbstractAdditionalGeometryData.html">AbstractAdditionalGeometryData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Additional Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="AbstractAdditionalGeometryData.html">AbstractAdditionalGeometryData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>!IsDerivedType(NiPSysData::TYPE)</i></td>
+    <td>Unknown.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+<li><a href="NiLinesData.html">NiLinesData</a></li>
+<li><a href="NiParticlesData.html">NiParticlesData</a></li>
+<li><a href="NiTriBasedGeomData.html">NiTriBasedGeomData</a></li>
+
+</ul>
+</body>
+</html>

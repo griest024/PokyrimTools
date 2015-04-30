@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - TexSource</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>TexSource</h2></center>
+A texture source.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Use External</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Is the texture external?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>File Name</i></td>
+    <td><a href="FilePath.html"><b>FilePath<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>useExternal == 1</i></td>
+    <td>The external texture file name.<br/><br/>            Note: all original morrowind nifs use name.ext only for addressing the textures, but most mods use something like textures/[subdir/]name.ext. This is due to a feature in Morrowind resource manager: it loads name.ext, textures/name.ext and textures/subdir/name.ext but NOT subdir/name.ext.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Link</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiObject.html">NiObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>useExternal == 1</i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Byte</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>useExternal == 0</i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td>10.0.1.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>File Name</i></td>
+    <td><a href="FilePath.html"><b>FilePath<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>useExternal == 0</i></td>
+    <td>The original source filename of the image embedded by the referred NiPixelData object.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Pixel Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiPixelData.html">NiPixelData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>useExternal == 0</i></td>
+    <td>Pixel data object index.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+
+</ul>
+</body>
+</html>

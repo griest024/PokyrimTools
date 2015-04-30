@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - BSLODTriShape</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>BSLODTriShape</h2></center>
+A variation on NiTriShape, for visibility control over vertex groups.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObjectNET.html">NiObjectNET</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Skyrim Shader Type</i></td>
+    <td><a href="BSLightingShaderPropertyShaderType.html"><b>BSLightingShaderPropertyShaderType<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>IsDerivedType(BSLightingShaderProperty::TYPE)</i></td>
+    <td>Configures the main shader path</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of this controllable object, used to refer to the object in .kf files.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Old Extra Data</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Extra data for pre-3.0 versions.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Old Extra Prop Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>(=NiStringExtraData)</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Old Extra Internal Id</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>ref</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Old Extra String</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>Extra string data.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Byte</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Always 0.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Extra Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiExtraData.html">NiExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Extra data object index. (The first in a chain)</td>
+    <td>3.0</td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Extra Data List</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of Extra Data objects referenced through the list.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Extra Data List</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiExtraData.html">NiExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i>Num Extra Data List</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>List of extra data indices.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller object index. (The first in a chain)</td>
+    <td>3.0</td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiAVObject.html">NiAVObject</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Some flags; commonly 0x000C or 0x000A.</td>
+    <td>3.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Short 1</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown Flag</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Translation</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The translation vector.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Rotation</i></td>
+    <td><a href="Matrix33.html"><b>Matrix33<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The rotation part of the transformation matrix.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Scale</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Scaling part (only uniform scaling is supported).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Velocity</i></td>
+    <td><a href="Vector3.html"><b>Vector3<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown function. Always seems to be (0, 0, 0)</td>
+    <td></td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Properties</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of property objects referenced.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Properties</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiProperty.html">NiProperty</a>&gt;</td>
+    <td><i></i></td>
+    <td><i>Num Properties</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>List of node properties.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 1</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i>4</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Always 2,0,2,0.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 2</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0 or 1.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Bounding Box</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a bounding box?</td>
+    <td>3.0</td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Bounding Box</i></td>
+    <td><a href="BoundingBox.html"><b>BoundingBox<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBoundingBox</i></td>
+    <td>The bounding box.</td>
+    <td>3.0</td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Collision Object</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiCollisionObject.html">NiCollisionObject</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Refers to NiCollisionObject, which is usually a bounding box or other simple collision shape.  In Oblivion this links the Havok objects.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiGeometry.html">NiGeometry</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiGeometryData.html">NiGeometryData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Data index (NiTriShapeData/NiTriStripData).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Skin Instance</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiSkinInstance.html">NiSkinInstance</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Skin instance index.</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Materials</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Num Materials</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Material Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Materials</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown string.  Shader?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Material Extra Data</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Materials</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown integer; often -1. (Is this a link, array index?)</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Active Material</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Active Material; often -1. (Is this a link, array index?)</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Shader</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Shader.</td>
+    <td>10.0.1.0</td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Shader Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasShader</i></td>
+    <td>The shader name.</td>
+    <td>10.0.1.0</td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Integer</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasShader</i></td>
+    <td>Unknown value, usually -1. (Not a link)</td>
+    <td>10.0.1.0</td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Byte</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Cyanide extension (only in version 10.2.0.0?).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Integer 2</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.4.0.1</td>
+    <td>10.4.0.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>Dirty Flag</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Dirty Flag?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>BS Properties</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiProperty.html">NiProperty</a>&gt;</td>
+    <td><i></i></td>
+    <td><i>2</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Two property links, used by Bethesda.</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiTriBasedGeom.html">NiTriBasedGeom</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="BSLODTriShape.html">BSLODTriShape</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Level 0 Size</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Level 1 Size</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Level 2 Size</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

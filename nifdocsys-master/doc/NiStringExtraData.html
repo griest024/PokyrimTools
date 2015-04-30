@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiStringExtraData</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiStringExtraData</h2></center>
+Apparently commands for an optimizer instructing it to keep things it would normally discard.<br/>        Also refers to NiNode objects (through their name) in animation .kf files.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiExtraData.html">NiExtraData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of this object.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Next Extra Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiExtraData.html">NiExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Block number of the next extra data object.</td>
+    <td></td>
+    <td>4.2.2.0</td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiStringExtraData.html">NiStringExtraData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Bytes Remaining</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of bytes left in the record.  Equals the length of the following string + 4.</td>
+    <td></td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>String Data</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The string.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

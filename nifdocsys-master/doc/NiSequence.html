@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiSequence</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiSequence</h2></center>
+Root node used in some Empire Earth II .kf files (version 4.2.2.0).
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiSequence.html">NiSequence</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of this object. This is also the name of the action associated with this file. For instance, if the original NIF file is called "demon.nif" and this animation file contains an attack sequence, then the file would be called "demon_attack1.kf" and this field would contain the string "attack1".</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Text Keys Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of following referenced NiTextKeyExtraData class.</td>
+    <td></td>
+    <td>10.1.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Text Keys</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTextKeyExtraData.html">NiTextKeyExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to NiTextKeyExtraData.</td>
+    <td></td>
+    <td>10.1.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 4</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td>20.3.0.9</td>
+    <td>20.3.0.9</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 5</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td>20.3.0.9</td>
+    <td>20.3.0.9</td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Controlled Blocks</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of controlled objects.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 1</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.1.0.106</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Controlled Blocks</i></td>
+    <td><a href="ControllerLink.html"><b>ControllerLink<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Controlled Blocks</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Refers to controlled objects.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+<li><a href="NiControllerSequence.html">NiControllerSequence</a></li>
+
+</ul>
+</body>
+</html>

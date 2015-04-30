@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - BSLightingShaderPropertyFloatController</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>BSLightingShaderPropertyFloatController</h2></center>
+This controller is used to animate variables in BSLightingShaderPropertyFloatController, target is a number in order they appear:<br/>    5: U Offset<br/>    6: V Offset<br/>    7: U Scale<br/>    8: V Scale
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiTimeController.html">NiTimeController</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Next Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Index of the next controller.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller flags (usually 0x000C). Probably controls loops.<br/>            Bit 0 : Anim type, 0=APP_TIME 1=APP_INIT<br/>            Bit 1-2 : Cycle type  00=Loop 01=Reverse 10=Loop<br/>            Bit 3 : Active<br/>            Bit 4 : Play backwards</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Frequency</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Frequency (is usually 1.0).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Phase</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Phase (usually 0.0).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Start Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller start time.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Stop Time</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller stop time.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Target</i></td>
+    <td><a href="Ptr.html"><b>Ptr<b></a>&lt;<a href="NiObjectNET.html">NiObjectNET</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller target (object index of the first controllable ancestor of this object).</td>
+    <td>3.3.0.13</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Integer</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown integer.</td>
+    <td></td>
+    <td>3.1</td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiInterpController.html">NiInterpController</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiSingleInterpController.html">NiSingleInterpController</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Interpolator</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiInterpolator.html">NiInterpolator</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to interpolator.</td>
+    <td>10.2.0.0</td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiFloatInterpController.html">NiFloatInterpController</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="BSLightingShaderPropertyFloatController.html">BSLightingShaderPropertyFloatController</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Target Variable</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Which variable in the shader to animate.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

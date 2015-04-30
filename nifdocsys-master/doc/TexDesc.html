@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - TexDesc</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>TexDesc</h2></center>
+Texture description.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Source</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiSourceTexture.html">NiSourceTexture</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>NiSourceTexture object index.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Clamp Mode</i></td>
+    <td><a href="TexClampMode.html"><b>TexClampMode<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0=clamp S clamp T, 1=clamp S wrap T, 2=wrap S clamp T, 3=wrap S wrap T</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>Filter Mode</i></td>
+    <td><a href="TexFilterMode.html"><b>TexFilterMode<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0=nearest, 1=bilinear, 2=trilinear, 3=..., 4=..., 5=...</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg1">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Texture mode flags; clamp and filter mode stored in upper byte with 0xYZ00 = clamp mode Y, filter mode Z.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown short</i></td>
+    <td><a href="short.html"><b>short<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown, seems to always be 1</td>
+    <td>20.6.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>UV Set</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The texture coordinate set in NiGeometryData that this texture slot will use.</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg0">
+    <td><i>PS2 L</i></td>
+    <td><a href="short.html"><b>short<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>PS2 only; from the Freedom Force docs, "L values can range from 0 to 3 and are used to specify how fast a texture gets blurry".</td>
+    <td></td>
+    <td>10.4.0.1</td>
+</tr>
+<tr class="reg1">
+    <td><i>PS2 K</i></td>
+    <td><a href="short.html"><b>short<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>PS2 only; from the Freedom Force docs, "The K value is used as an offset into the mipmap levels and can range from -2047 to 2047. Positive values push the mipmap towards being blurry and negative values make the mipmap sharper." -75 for most v4.0.0.2 meshes.</td>
+    <td></td>
+    <td>10.4.0.1</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown1</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown, 0 or 0x0101?</td>
+    <td></td>
+    <td>4.1.0.12</td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Texture Transform</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Determines whether or not the texture's coordinates are transformed.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Translation</i></td>
+    <td><a href="TexCoord.html"><b>TexCoord<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasTextureTransform</i></td>
+    <td>The amount to translate the texture coordinates in each direction?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Tiling</i></td>
+    <td><a href="TexCoord.html"><b>TexCoord<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasTextureTransform</i></td>
+    <td>The number of times the texture is tiled in each direction?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>W Rotation</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasTextureTransform</i></td>
+    <td>2D Rotation of texture image around third W axis after U and V.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Transform Type?</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasTextureTransform</i></td>
+    <td>The texture transform type?  Doesn't seem to do anything.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Center Offset</i></td>
+    <td><a href="TexCoord.html"><b>TexCoord<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasTextureTransform</i></td>
+    <td>The offset from the origin?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="NiTexturingProperty.html">NiTexturingProperty</a></li>
+<li><a href="ShaderTexDesc.html">ShaderTexDesc</a></li>
+
+</ul>
+</body>
+</html>

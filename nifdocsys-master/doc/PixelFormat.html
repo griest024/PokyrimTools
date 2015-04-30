@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - PixelFormat</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <h2>PixelFormat</h2>
+Specifies the pixel format used by the NiPixelData object to store a texture.
+
+<h3>Choices</h3>
+<table>
+<tr>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr class="reg0">
+    <td>0</td>
+    <td><b>PX_FMT_RGB8</b></td>
+    <td>24-bit color: uses 8 bit to store each red, blue, and green component.</td>
+</tr>
+<tr class="reg1">
+    <td>1</td>
+    <td><b>PX_FMT_RGBA8</b></td>
+    <td>32-bit color with alpha: uses 8 bits to store each red, blue, green, and alpha component.</td>
+</tr>
+<tr class="reg0">
+    <td>2</td>
+    <td><b>PX_FMT_PAL8</b></td>
+    <td>8-bit palette index: uses 8 bits to store an index into the palette stored in a NiPalette object.</td>
+</tr>
+<tr class="reg1">
+    <td>4</td>
+    <td><b>PX_FMT_DXT1</b></td>
+    <td>DXT1 compressed texture.</td>
+</tr>
+<tr class="reg0">
+    <td>5</td>
+    <td><b>PX_FMT_DXT5</b></td>
+    <td>DXT5 compressed texture.</td>
+</tr>
+<tr class="reg1">
+    <td>6</td>
+    <td><b>PX_FMT_DXT5_ALT</b></td>
+    <td>DXT5 compressed texture. It is not clear what the difference is with PX_FMT_DXT5.</td>
+</tr>
+
+</table>
+
+<h3>Storage Type</h3>
+<a href ="unsigned int.html">unsigned int</a>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="ATextureRenderData.html">ATextureRenderData</a></li>
+
+</ul>
+</body>
+</html>

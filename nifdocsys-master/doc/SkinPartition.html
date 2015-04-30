@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - SkinPartition</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>SkinPartition</h2></center>
+Skinning data for a submesh, optimized for hardware skinning. Part of NiSkinPartition.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr class="reg0">
+    <td><i>Num Vertices</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of vertices in this submesh.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Triangles</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of triangles in this submesh.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Bones</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of bones influencing this submesh.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Strips</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of strips in this submesh (zero if not stripped).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Weights Per Vertex</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of weight coefficients per vertex. The Gamebryo engine seems to work well only if this number is equal to 4, even if there are less than 4 influences per vertex.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bones</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Bones</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>List of bones.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Vertex Map</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a vertex map?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertex Map</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Maps the weight/influence lists in this submesh to the vertices in the shape being skinned.</td>
+    <td></td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg0">
+    <td><i>Vertex Map</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i></i></td>
+    <td><i>hasVertexMap</i></td>
+    <td>Maps the weight/influence lists in this submesh to the vertices in the shape being skinned.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Vertex Weights</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have vertex weights?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Vertex Weights</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i>Num Weights Per Vertex</i></td>
+    <td><i></i></td>
+    <td>The vertex weights.</td>
+    <td></td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg1">
+    <td><i>Vertex Weights</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i>Num Weights Per Vertex</i></td>
+    <td><i>hasVertexWeights</i></td>
+    <td>The vertex weights.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Strip Lengths</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Strips</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The strip lengths.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Faces</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have triangle or strip data?</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Strips</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Strips</i></td>
+    <td><i>Strip Lengths</i></td>
+    <td><i>numStrips != 0</i></td>
+    <td>The strips.</td>
+    <td></td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg1">
+    <td><i>Strips</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Strips</i></td>
+    <td><i>Strip Lengths</i></td>
+    <td><i>hasFaces && (numStrips != 0)</i></td>
+    <td>The strips.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Triangles</i></td>
+    <td><a href="Triangle.html"><b>Triangle<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Triangles</i></td>
+    <td><i></i></td>
+    <td><i>numStrips == 0</i></td>
+    <td>The triangles.</td>
+    <td></td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg1">
+    <td><i>Triangles</i></td>
+    <td><a href="Triangle.html"><b>Triangle<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Triangles</i></td>
+    <td><i></i></td>
+    <td><i>hasFaces && (numStrips == 0)</i></td>
+    <td>The triangles.</td>
+    <td>10.1.0.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Bone Indices</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have bone indices?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bone Indices</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices</i></td>
+    <td><i>Num Weights Per Vertex</i></td>
+    <td><i>hasBoneIndices</i></td>
+    <td>Bone indices, they index into 'Bones'.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Short</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 83 C3</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 00 00 1</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Vertices 2</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 00 00 2</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 00 00 3</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 00 00 4</i></td>
+    <td><a href="ushort.html"><b>ushort<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Arr 1</i></td>
+    <td><a href="SkinPartitionUnknownItem1.html"><b>SkinPartitionUnknownItem1<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Vertices 2</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>10.2.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+
+</table>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="NiSkinPartition.html">NiSkinPartition</a></li>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - TexFilterMode</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <h2>TexFilterMode</h2>
+Specifies the availiable texture filter modes.  That is, the way pixels within a texture are blended together when textures are displayed on the screen at a size other than their original dimentions.
+
+<h3>Choices</h3>
+<table>
+<tr>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr class="reg0">
+    <td>0</td>
+    <td><b>FILTER_NEAREST</b></td>
+    <td>Simply uses the nearest pixel.  Very grainy.</td>
+</tr>
+<tr class="reg1">
+    <td>1</td>
+    <td><b>FILTER_BILERP</b></td>
+    <td>Uses bilinear filtering.</td>
+</tr>
+<tr class="reg0">
+    <td>2</td>
+    <td><b>FILTER_TRILERP</b></td>
+    <td>Uses trilinear filtering.</td>
+</tr>
+<tr class="reg1">
+    <td>3</td>
+    <td><b>FILTER_NEAREST_MIPNEAREST</b></td>
+    <td>Uses the nearest pixel from the mipmap that is closest to the display size.</td>
+</tr>
+<tr class="reg0">
+    <td>4</td>
+    <td><b>FILTER_NEAREST_MIPLERP</b></td>
+    <td>Blends the two mipmaps closest to the display size linearly, and then uses the nearest pixel from the result.</td>
+</tr>
+<tr class="reg1">
+    <td>5</td>
+    <td><b>FILTER_BILERP_MIPNEAREST</b></td>
+    <td>Uses the closest mipmap to the display size and then uses bilinear filtering on the pixels.</td>
+</tr>
+
+</table>
+
+<h3>Storage Type</h3>
+<a href ="unsigned int.html">unsigned int</a>
+
+<h3>Found In</h3>
+<ul>
+<li><a href="NiTextureEffect.html">NiTextureEffect</a></li>
+<li><a href="MultiTextureElement.html">MultiTextureElement</a></li>
+<li><a href="TexDesc.html">TexDesc</a></li>
+
+</ul>
+</body>
+</html>

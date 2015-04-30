@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiTexturingProperty</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiTexturingProperty</h2></center>
+Describes an object's textures.
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObjectNET.html">NiObjectNET</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Skyrim Shader Type</i></td>
+    <td><a href="BSLightingShaderPropertyShaderType.html"><b>BSLightingShaderPropertyShaderType<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>IsDerivedType(BSLightingShaderProperty::TYPE)</i></td>
+    <td>Configures the main shader path</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Name of this controllable object, used to refer to the object in .kf files.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Old Extra Data</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Extra data for pre-3.0 versions.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Old Extra Prop Name</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>(=NiStringExtraData)</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Old Extra Internal Id</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>ref</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Old Extra String</i></td>
+    <td><a href="string.html"><b>string<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasOldExtraData</i></td>
+    <td>Extra string data.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Byte</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Always 0.</td>
+    <td></td>
+    <td>2.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Extra Data</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiExtraData.html">NiExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Extra data object index. (The first in a chain)</td>
+    <td>3.0</td>
+    <td>4.2.2.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Extra Data List</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The number of Extra Data objects referenced through the list.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Extra Data List</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiExtraData.html">NiExtraData</a>&gt;</td>
+    <td><i></i></td>
+    <td><i>Num Extra Data List</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>List of extra data indices.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Controller</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiTimeController.html">NiTimeController</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Controller object index. (The first in a chain)</td>
+    <td>3.0</td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiProperty.html">NiProperty</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiTexturingProperty.html">NiTexturingProperty</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Property flags.</td>
+    <td></td>
+    <td>10.0.1.2</td>
+</tr>
+<tr class="reg1">
+    <td><i>Flags</i></td>
+    <td><a href="Flags.html"><b>Flags<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Property flags.</td>
+    <td>20.1.0.3</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Apply Mode</i></td>
+    <td><a href="ApplyMode.html"><b>ApplyMode<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Determines how the texture will be applied.  Seems to have special functions in Oblivion.</td>
+    <td></td>
+    <td>20.0.0.5</td>
+</tr>
+<tr class="reg1">
+    <td><i>Texture Count</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of textures. Always 7 in versions < 20.0.0.4. Can also be 8 in >= 20.0.0.4.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Base Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a base texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Base Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBaseTexture</i></td>
+    <td>The base texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Dark Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a dark texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Dark Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDarkTexture</i></td>
+    <td>The dark texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Detail Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a detail texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Detail Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDetailTexture</i></td>
+    <td>The detail texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Gloss Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a gloss texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Gloss Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasGlossTexture</i></td>
+    <td>The gloss texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Glow Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a glow texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Glow Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasGlowTexture</i></td>
+    <td>The glowing texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Bump Map Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a bump map texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bump Map Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBumpMapTexture</i></td>
+    <td>The bump map texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Bump Map Luma Scale</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBumpMapTexture</i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Bump Map Luma Offset</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBumpMapTexture</i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Bump Map Matrix</i></td>
+    <td><a href="Matrix22.html"><b>Matrix22<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasBumpMapTexture</i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Normal Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a normal texture?  (Noraml guess based on file suffix in sample files)</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Normal Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasNormalTexture</i></td>
+    <td>Normal texture.</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Unknown2 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a unknown texture 2?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown2 Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasUnknown2Texture</i></td>
+    <td>Unknown texture 2.</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown2 Float</i></td>
+    <td><a href="float.html"><b>float<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasUnknown2Texture</i></td>
+    <td>Unknown.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Decal 0 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Do we have a decal 0 texture?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Decal 0 Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDecal0Texture</i></td>
+    <td>The decal texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Decal 1 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 8</i></td>
+    <td>Do we have a decal 1 texture?</td>
+    <td></td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Decal 1 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 10</i></td>
+    <td>Do we have a decal 1 texture?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Decal 1 Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDecal1Texture</i></td>
+    <td>Another decal texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Decal 2 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 9</i></td>
+    <td>Do we have a decal 2 texture?</td>
+    <td></td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Decal 2 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 11</i></td>
+    <td>Do we have a decal 2 texture?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Decal 2 Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDecal2Texture</i></td>
+    <td>Another decal texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Has Decal 3 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 10</i></td>
+    <td>Do we have a decal 3 texture?</td>
+    <td></td>
+    <td>20.1.0.3</td>
+</tr>
+<tr class="reg1">
+    <td><i>Has Decal 3 Texture</i></td>
+    <td><a href="bool.html"><b>bool<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>textureCount >= 12</i></td>
+    <td>Do we have a decal 3 texture?</td>
+    <td>20.2.0.7</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Decal 3 Texture</i></td>
+    <td><a href="TexDesc.html"><b>TexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i>hasDecal3Texture</i></td>
+    <td>Another decal texture. Who knows the limit.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Shader Textures</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of Shader textures that follow.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Shader Textures</i></td>
+    <td><a href="ShaderTexDesc.html"><b>ShaderTexDesc<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Shader Textures</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Shader textures.</td>
+    <td>10.0.1.0</td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>

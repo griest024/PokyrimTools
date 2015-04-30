@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>NIF File Format Documentation - NiPersistentSrcTextureRendererData</title>
+    <link rel=StyleSheet href="docsys.css" type="text/css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <center><h1>NIF File Format Documentation</h1></center>
+    <p align="center"><a href="index.html">NIF Objects</a> | <a href="compound_list.html">Compound Types</a> | <a href="enum_list.html">Enum Types</a> | <a href="basic_list.html">Basic Types</a> | <a href="version_list.html">File Versions</a></p>
+    <center><h2>NiPersistentSrcTextureRendererData</h2></center>
+
+<h3>Attributes</h3>
+<table>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Arg</th>
+<th>Arr1</th>
+
+<th>Arr2</th>
+<th>Cond</th>
+<th>Description</th>
+<th>From</th><th>To</th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiObject.html">NiObject</a></th>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="ATextureRenderData.html">ATextureRenderData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Pixel Format</i></td>
+    <td><a href="PixelFormat.html"><b>PixelFormat<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>The format of the pixels in this internally stored image.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Red Mask</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0x000000ff (for 24bpp and 32bpp) or 0x00000000 (for 8bpp)</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Green Mask</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0x0000ff00 (for 24bpp and 32bpp) or 0x00000000 (for 8bpp)</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Blue Mask</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0x00ff0000 (for 24bpp and 32bpp) or 0x00000000 (for 8bpp)</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Alpha Mask</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>0xff000000 (for 32bpp) or 0x00000000 (for 24bpp and 8bpp)</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Bits Per Pixel</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Bits per pixel, 0 (?), 8, 24 or 32.</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown 3 Bytes</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i>3</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Zero?</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown 8 Bytes</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i>8</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>[96,8,130,0,0,65,0,0] if 24 bits per pixel<br/>            [129,8,130,32,0,65,12,0] if 32 bits per pixel<br/>            [34,0,0,0,0,0,0,0] if 8 bits per pixel<br/>            [4,0,0,0,0,0,0,0] if 0 (?) bits per pixel</td>
+    <td></td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Seems to always be zero.</td>
+    <td>10.1.0.0</td>
+    <td>10.2.0.0</td>
+</tr>
+<tr class="reg1">
+    <td><i>Bits Per Pixel</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Bits per pixel, 0 (?), 8, 24 or 32.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Int 2</i></td>
+    <td><a href="int.html"><b>int<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.  Could be reference pointer.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 3</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Seems to always be zero.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Flags</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Flags</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 4</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unkown. Often zero.</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Unknown Byte 1</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown.</td>
+    <td>20.3.0.6</td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Channels</i></td>
+    <td><a href="ChannelData.html"><b>ChannelData<b></a></td>
+    <td><i></i></td>
+    <td><i>4</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Channel Data</td>
+    <td>20.0.0.4</td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Palette</i></td>
+    <td><a href="Ref.html"><b>Ref<b></a>&lt;<a href="NiPalette.html">NiPalette</a>&gt;</td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Link to NiPalette, for 8-bit textures.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Num Mipmaps</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Number of mipmaps in the texture.</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Bytes Per Pixel</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Bytes per pixel (Bits Per Pixel / 8).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Mipmaps</i></td>
+    <td><a href="MipMap.html"><b>MipMap<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Mipmaps</i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Mipmap descriptions (width, height, offset).</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <th align="left" style="text-align:left;" colspan="9">From <a href ="NiPersistentSrcTextureRendererData.html">NiPersistentSrcTextureRendererData</a></th>
+</tr>
+<tr class="reg0">
+    <td><i>Num Pixels</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 6</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown, same as the number of pixels? / number of blocks?</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Num Faces</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg1">
+    <td><i>Unknown Int 7</i></td>
+    <td><a href="uint.html"><b>uint<b></a></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td><i></i></td>
+    <td>Unknown</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="reg0">
+    <td><i>Pixel Data</i></td>
+    <td><a href="byte.html"><b>byte<b></a></td>
+    <td><i></i></td>
+    <td><i>Num Faces</i></td>
+    <td><i>Num Pixels</i></td>
+    <td><i></i></td>
+    <td>Raw pixel data holding the mipmaps.  Mipmap zero is the full-size texture and they get smaller by half as the number increases.</td>
+    <td></td>
+    <td></td>
+</tr>
+
+</table>
+
+<h3>Parent Of</h3>
+<ul>
+
+</ul>
+</body>
+</html>
