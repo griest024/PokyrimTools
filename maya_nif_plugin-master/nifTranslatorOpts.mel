@@ -1,0 +1,559 @@
+//	Description:
+//		This script posts the LEP file translator options.
+//		The optionsString is of the form:
+//			varName1=value1;varName2=value2;...
+//		for the LEP translator, there is only one option named "t",
+//		which can have 2 value.  If it is "1" (or true), then on writing
+//		Dag node type names are written, otherwise, it is "0" and type
+//		names are not written.
+//
+//	Parameters:
+//		$parent	- the elf parent layout for this options layout. It is
+//					always a scrollLayout.
+//		$action	- the action that is to be performed with this invokation
+//					of this proc. Valid options are:
+//						"query" - construct the options string and pass it
+//									to the resultCallback.
+//						"post"	- post all the elf controls.
+//		$initialSettings - the current options string in effect at the
+//						   time this script is invoked.
+//		$resultCallback	-
+//				This is the proc to be called with the result string. 
+//				resultCallback ( string $optionsString )
+//
+//	Returns:
+//		1 if successfull.
+//		0 otherwise.
+//
+
+global string $gNifExportedObjects[];
+global int $gNifExportedObjectsValues[];
+global string $gNifExportedObjectsTypes[];
+
+global proc int nifTranslatorOpts ( string $parent,
+				    string $action,
+				    string $initialSettings,
+				    string $resultCallback )
+{
+	int $bResult;
+	string $currentOptions;
+	string $optionList[];
+	string $optionBreakDown[];
+	int $index;
+	
+	string $defaultPath = "C:/Program Files/Bethesda Softworks/Morrowind/Data Files/Textures";
+	string $defaultVersion = "4.0.0.2";
+	string $defaultUserVersion = "0";
+	string $defaultBonesPerPart = "0";
+	string $defaultJointMatch = "Bip";
+	string $defaultPathPrefix = "textures/";
+	string $defaultPaths[] = { 
+		"C:/Program Files/Bethesda Softworks/Morrowind/Data Files",
+		"C:/Program Files/Bethesda Softworks/Morrowind/Data Files/Textures",
+		"C:/Program Files/Bethesda Softworks/Oblivion/Data",
+		"./textures",
+		"C:/Program Files/Firaxis Games/Sid Meier's Civilization 4/Assets/Art/shared"
+	};
+	
+	
+	if ($action == "post") {
+		setParent $parent;
+		frameLayout -label "Common" -marginWidth 20 -marginHeight 5 -borderStyle "etchedIn" -collapsable true;
+			columnLayout commonColumnLayout;
+				checkBox -label "Use Name Mangling to Preserve Original Names" 
+						  -value 1
+						  -annotation "Preserves names which are invalid in Maya names using character code numbers for re-export."
+						  useNameManglingCk;
+				rowLayout -numberOfColumns 1;
+					text -label "Texture Search Paths:"
+						 -width 150
+						 -annotation "Determines where the importer will search for textures specified in the NIF file."
+						 -font boldLabelFont;;
+				setParent commonColumnLayout;
+				rowLayout -numberOfColumns 3
+						  -columnWidth3 300 50 50
+						  -columnAttach3 "both" "left" "left";
+					  textField -editable true
+					  			-text ""
+								-annotation "Type a path here and press 'Add' to add it to the texture search path list.  './' is current NIF file folder, '../' is parent folder."
+								nifTxPath;
+					button -label "Browse"
+					       -annotation "Press this button to choose a folder from your drive, then make any edits in the text box to the left and press 'Add.'"
+						   -width 50
+						   -command "fileBrowser( \"onOk\", \"\", \"\", 4 )";
+					button -label "Add"
+					       -width 50
+					       -command "AddPath()";
+				setParent commonColumnLayout;
+				textScrollList -width 400 
+				               -numberOfRows 8
+							   -annotation "The paths that the plug-in will search for textures in in addition to NIF location.  Delete Key:  Removes an item.  Double-click:  Copies an item to text field."
+							   -doubleClickCommand "SelectPath()"
+							   -deleteKeyCommand "DeletePath()"
+							   nifPathList;
+				for ( $i = 0; $i < size($defaultPaths); $i++ ) {
+					textScrollList -edit -append $defaultPaths[$i] -width 400 nifPathList;
+				}
+				setParent $parent;
+		frameLayout -label "Import" -marginWidth 20 -marginHeight 5 -borderStyle "etchedIn" -collapsable true;
+			columnLayout importColumnLayout;
+				checkBox -label "Attempt to Find Original Bind Pose" 
+					      -value 1
+						  -annotation "Attempts to extract the original position the NIF file was bound in rather than its current position."
+						  impBindPoseCk;
+				checkBox -label "Try to Use Original Normals" 
+					      -value 0
+						  -annotation "Attepts to import the normals from the NIF file as user normals."
+						  impNormalsCk;
+				checkBox -label "Ignore Ambient Color" 
+					      -value 0
+						  -annotation "Uses the default ambient color instead of what is in the NIF file; usually white."
+						  impNoAmbientCk;
+				checkBox -label "Combine New Skins with Existing Skeleton" 
+					      -value 1
+						  -annotation "Tries to bind newly imported skin files to an already imported skeleton.  Only works for identical skeletons."
+						  impSkelCombCk;
+				rowLayout -numberOfColumns 3
+					  -columnWidth3 90 50 120
+					  -columnAttach3 "both" "both" "both";
+					  text -label "Import nodes with";
+					  textField -editable true
+					  			-text $defaultJointMatch
+								-annotation "NIF files do not mark their joints, so this provides a method to force known bones to import."
+								impJointMatchTx;
+					  text -label "  in their name as joints.";
+				setParent importColumnLayout;
+		setParent $parent;
+		
+		frameLayout -label "Export Outliner" -marginWidth 20 -marginHeight 5 -borderStyle "etchedIn" -collapsable true overviewFrameLayout;
+			global string $gNifExportedObjects[];
+			global int $gNifExportedObjectsValues[];
+			global string $gNifExportedObjectsTypes[];
+			string $shapes[];
+			string $selectedShapes[];
+			string $tmpshapes[];
+			
+			int $x = 0;
+			$shapes = `ls -type "transform" -type "joint"`;
+			clear($gNifExportedObjects);
+			for($i = 0;$i < size($shapes); $i++) {
+				string $shapeNodes[] = `listRelatives -type "shape" $shapes[$i]`;
+				if(size($shapeNodes) > 0 && hasValidNifName($shapes[$i]) == 1) {
+					$gNifExportedObjects[$x] = $shapes[$i];
+					$gNifExportedObjectsTypes[$x] = "shape";
+					$x++;
+				}
+				
+				if(`objectType -isType "joint" $shapes[$i]` == 1) {
+					$gNifExportedObjects[$x] = $shapes[$i];
+					$gNifExportedObjectsTypes[$x] = "joint";
+					$x++;
+				}		
+			}		
+			
+			clear($gNifExportedObjectsValues);		
+			for($i = 0;$i < size($gNifExportedObjects); $i++) {
+				$gNifExportedObjectsValues[$i] = 0;
+			}		
+			
+			
+			treeView -height 300 -width 250 -numberOfButtons 1 -abr false overviewTreeView;
+			treeView -edit -pressCommand 1 "ChangeSelectionExportOverviewTreeView" overviewTreeView;
+			treeView -edit -addItem "Shapes" "" -hideButtons overviewTreeView;
+			treeView -edit -addItem "Joints" "" -hideButtons overviewTreeView;
+			for($i = 0;$i < size($gNifExportedObjects); $i++) {
+				if($gNifExportedObjectsTypes[$i] == "shape") {
+					treeView -edit -addItem $gNifExportedObjects[$i] "Shapes" overviewTreeView;
+				}
+				
+				if($gNifExportedObjectsTypes[$i] == "joint") {
+					treeView -edit -addItem $gNifExportedObjects[$i] "Joints" overviewTreeView;
+				}
+				
+				treeView -edit -buttonStyle $gNifExportedObjects[$i] 1 "pushButton" overviewTreeView;
+			}
+			
+			$selectedShapes = `ls -selection -type "transform" -type "joint"`;
+			for($i = 0;$i < size($selectedShapes); $i++) {
+				if(size(`listRelatives -type "shape" $selectedShapes[$i]`) > 0) {
+					treeView -edit -buttonTextIcon $selectedShapes[$i] 1 "E" overviewTreeView;
+					for($j = 0;$j < size($gNifExportedObjects); $j++) {
+						if ($gNifExportedObjects[$j] == $selectedShapes[$i]) {
+							$gNifExportedObjectsValues[$j] = 1;
+							break;
+						}
+					}
+				}
+				
+				if(`objectType -isType "joint" $selectedShapes[$i]` == 1) {
+					treeView -edit -buttonTextIcon $selectedShapes[$i] 1 "E" overviewTreeView;
+					for($j = 0;$j < size($gNifExportedObjects); $j++) {
+						if ($gNifExportedObjects[$j] == $selectedShapes[$i]) {
+							$gNifExportedObjectsValues[$j] = 1;
+							break;
+						}
+					}
+				}
+			}	
+		setParent $parent;
+		
+		frameLayout -label "Export" -marginWidth 20 -marginHeight 5 -borderStyle "etchedIn" -collapsable true;
+			columnLayout exportColumnLayout;
+			rowLayout -numberOfColumns 2
+					  -columnWidth2 120 70
+					  -columnAttach2 "both" "both";
+					  text -label "NIF Version:";
+					  textField -editable true
+								-text $defaultVersion
+								-annotation "The NIF file version to export.  Examples - Morrowind: 4.0.0.2  CivIV: 20.0.0.4  Oblivion: 20.0.0.5"
+								nifVersion;
+			setParent exportColumnLayout;
+			rowLayout -numberOfColumns 2
+					  -columnWidth2 120 70
+					  -columnAttach2 "both" "both";
+					  text -label "Game Specific Version:";
+					  textField -editable true
+								-text $defaultUserVersion
+								-annotation "Optional game-specific version number extention.  Oblivion: 10 or 11  All Others: 0"
+								expUserVersionTx;
+			setParent exportColumnLayout;
+			
+			checkBox -label "Export White Ambient if Texture is Present" 
+					      -value 1
+						  -annotation "Allows you to keep your ambient colors looking nice in Maya and convert them to white on export."
+						  expWhiteAmbientCk;
+			checkBox -label "Arrange Triangles in Strips" 
+					      -value 0
+						  -annotation "Exports NiTriStrips instead of NiTriShapes.  May cause problems in Morrowind CS."
+						  expTriStripsCk;
+			checkBox -label "Rename mesh chunks marked with materials with Morrowind body part names." 
+					      -value 0
+						  -annotation "Used for automatically splitting apart a single mesh into multiple meshes for each body part by material assignment."
+						  expMorRenameCk;
+			checkBox -label "Generate Oblivion Tangent Space Data" 
+					      -value 0
+						  -annotation "Check this option if you are exporting for Oblivion.  Otherwise it will just inflate your NIF file."
+						  expTanSpaceCk;
+			setParent exportColumnLayout;
+			rowLayout -numberOfColumns 2
+					  -columnWidth2 220 50
+					  -columnAttach2 "both" "both";
+					  text -label "Maximum Number of Bones per Skin Partition:";
+					  textField -editable true
+						  -text $defaultBonesPerPart
+						  -annotation "CivIV No Shader: 4  CivIV FX Shader: 16  Oblivion: 20  Morrowind: 0"
+						  expPartBonesTx;
+			setParent exportColumnLayout;
+			text -label "Texture Path Adjustment:"
+			     -width 150
+				 -annotation "Determines the way the texture file paths will be saved in the NIF file."
+				 -font boldLabelFont;
+			columnLayout pathLayout;
+				radioCollection;
+					radioButton -label "Automatic based on texture search path selections."
+								-annotation "If part of the path matches one of the texture search paths, a partial path will be exported.  Otherwise only the name will be exported."
+								-select
+								expPathAutoRd;
+					radioButton -label "Export file name only."
+								-annotation "Only the file name, no folders, will be exported."
+								expPathNameRd;
+					radioButton -label "Export full path."
+								-annotation "The full path, including the drive letter and all folders, will be exported."
+								expPathFullRd;
+					radioButton -label "Prefix file name with the following:"
+								-annotation "The following text will be added to the begining of all texture paths in the exported NIF file"
+								expPathPrefixRd;
+				setParent pathLayout;
+				textField -editable true
+					      -text $defaultPathPrefix
+						  -width 200
+						  -annotation "Text optionally added to the begining of all texture paths in the exported NIF file"
+				          expPathPrefixTx;
+			setParent exportColumnLayout;
+		setParent $parent;
+							
+		// Now set to current settings.
+		$currentOptions = $initialSettings;
+		if (size($currentOptions) > 0) {
+			tokenize($currentOptions, ";", $optionList);
+			for ($index = 0; $index < size($optionList); $index++) {
+				tokenize($optionList[$index], "=", $optionBreakDown);
+				if ($optionBreakDown[0] == "texturePath") {
+					textScrollList -edit -removeAll nifPathList;
+					string $paths[];
+					tokenize($optionBreakDown[1], "|", $paths);
+					for ( $i = 0; $i < size($paths); $i++ ) {
+						textScrollList -edit -append $paths[$i] -width 400 nifPathList;
+					}
+				}
+				if ($optionBreakDown[0] == "exportVersion") {
+					textField -edit -text $optionBreakDown[1] nifVersion;
+				}
+				if ($optionBreakDown[0] == "exportUserVersion") {
+					textField -edit -text $optionBreakDown[1] expUserVersionTx;
+				}
+				if ($optionBreakDown[0] == "importBindPose") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true impBindPoseCk;
+					} else {
+						checkBox -edit -value false impBindPoseCk;
+					}
+				}
+				if ($optionBreakDown[0] == "importNormals") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true impNormalsCk;
+					} else {
+						checkBox -edit -value false impNormalsCk;
+					}
+				}
+				if ($optionBreakDown[0] == "importNoAmbient") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true impNoAmbientCk;
+					} else {
+						checkBox -edit -value false impNoAmbientCk;
+					}
+				}
+				if ($optionBreakDown[0] == "exportWhiteAmbient") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true expWhiteAmbientCk;
+					} else {
+						checkBox -edit -value false expWhiteAmbientCk;
+					}
+				}
+				if ($optionBreakDown[0] == "exportTriStrips") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true expTriStripsCk;
+					} else {
+						checkBox -edit -value false expTriStripsCk;
+					}
+				}
+				if ($optionBreakDown[0] == "exportTanSpace") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true expTanSpaceCk;
+					} else {
+						checkBox -edit -value false expTanSpaceCk;
+					}
+				}
+				if ($optionBreakDown[0] == "exportMorRename") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true expMorRenameCk;
+					} else {
+						checkBox -edit -value false expMorRenameCk;
+					}
+				}
+				if ($optionBreakDown[0] == "importSkelComb") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true impSkelCombCk;
+					} else {
+						checkBox -edit -value false impSkelCombCk;
+					}
+				}
+				if ($optionBreakDown[0] == "exportPathMode") {
+					if ( $optionBreakDown[1] == "Name" ) {
+						radioButton -edit -select expPathNameRd;
+					} else if ( $optionBreakDown[1] == "Full" ) {
+						radioButton -edit -select expPathFullRd;
+					} else if ( $optionBreakDown[1] == "Prefix" ) {
+						radioButton -edit -select expPathPrefixRd;
+					} else {
+						//Auto is default
+						radioButton -edit -select expPathAutoRd;
+					}
+				}				
+				if ($optionBreakDown[0] == "exportPathPrefix") {
+					textField -edit -text $optionBreakDown[1] expPathPrefixTx;
+				}
+				if ($optionBreakDown[0] == "exportPartBones") {
+					textField -edit -text $optionBreakDown[1] expPartBonesTx;
+				}
+				if ($optionBreakDown[0] == "importJointMatch") {
+					textField -edit -text $optionBreakDown[1] impJointMatchTx;
+				}
+				if ($optionBreakDown[0] == "useNameMangling") {
+					if ($optionBreakDown[1] == "1" ) {
+						checkBox -edit -value true useNameManglingCk;
+					} else {
+						checkBox -edit -value false useNameManglingCk;
+					}
+				}
+			}
+		}
+		$bResult = 1;
+	
+	} else if ($action == "query") {
+		//Build option string
+		string $paths[] = `textScrollList -query -allItems nifPathList`;
+		if ( size($paths) > 0 ) {
+			$currentOptions = $currentOptions + "texturePath=";
+		}
+		for( $i = 0; $i < size($paths); $i++ ) {
+			$currentOptions = $currentOptions + $paths[$i];
+			if ( $i != size($paths) - 1 ) {
+				$currentOptions = $currentOptions + "|";
+			}
+		}
+		$currentOptions = $currentOptions + ";";
+
+		string $version = `textField -query -text nifVersion`;
+		if ($version != "") {
+			$currentOptions = $currentOptions + "exportVersion=" + $version + ";";
+		} else {
+			//Use Default version
+			$currentOptions = $currentOptions + "exportVersion=" + $defaultVersion + ";";
+		}
+		
+		global string $gNifExportedObjects[];
+		global int $gNifExportedObjectsValues[];
+		global string $gNifExportedObjectsTypes[];
+		string $exportedShapes = "exportedShapes=";
+		int $first = 1;
+		for($i = 0;$i < size($gNifExportedObjects);$i++) {
+			if($gNifExportedObjectsTypes[$i] == "shape" && $gNifExportedObjectsValues[$i] == 1) {
+				if($first == 1) {
+					$exportedShapes = $exportedShapes + $gNifExportedObjects[$i];
+					$first = 0;
+				} else {
+					$exportedShapes = $exportedShapes + "," + $gNifExportedObjects[$i];
+				}
+			}
+		}
+		$currentOptions = $currentOptions + $exportedShapes + ";";
+		string $exportedJoints = "exportedJoints=";
+		$first = 1;
+		for($i = 0;$i < size($gNifExportedObjects);$i++) {
+			if($gNifExportedObjectsTypes[$i] == "joint" && $gNifExportedObjectsValues[$i] == 1) {
+				if($first == 1) {
+					$exportedJoints = $exportedJoints + $gNifExportedObjects[$i];
+					$first = 0;
+				} else {
+					$exportedJoints = $exportedJoints + "," + $gNifExportedObjects[$i];
+				}
+			}
+		}
+		$currentOptions = $currentOptions + $exportedJoints + ";";
+		
+		string $userVersion = `textField -query -text expUserVersionTx`;
+		if ($version != "") {
+			$currentOptions = $currentOptions + "exportUserVersion=" + $userVersion + ";";
+		} else {
+			//Use Default user version
+			$currentOptions = $currentOptions + "exportUserVersion=" + $defaultUserVersion + ";";
+		}
+		
+		int $ckVal;
+		
+		$ckVal = `checkBox -query -value impBindPoseCk`;
+		$currentOptions = $currentOptions + "importBindPose=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value impNormalsCk`;
+		$currentOptions = $currentOptions + "importNormals=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value impNoAmbientCk`;
+		$currentOptions = $currentOptions + "importNoAmbient=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value expWhiteAmbientCk`;
+		$currentOptions = $currentOptions + "exportWhiteAmbient=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value expTriStripsCk`;
+		$currentOptions = $currentOptions + "exportTriStrips=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value expTanSpaceCk`;
+		$currentOptions = $currentOptions + "exportTanSpace=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value expMorRenameCk`;
+		$currentOptions = $currentOptions + "exportMorRename=" + $ckVal + ";";
+		
+		$ckVal = `checkBox -query -value impSkelCombCk`;
+		$currentOptions = $currentOptions + "importSkelComb=" + $ckVal + ";";
+		
+		string $partBones = `textField -query -text expPartBonesTx`;
+		$currentOptions = $currentOptions + "exportPartBones=" + $partBones + ";";
+		
+		string $jointMatch = `textField -query -text impJointMatchTx`;
+		$currentOptions = $currentOptions + "importJointMatch=" + $jointMatch + ";";
+		
+		$ckVal = `checkBox -query -value useNameManglingCk`;
+		$currentOptions = $currentOptions + "useNameMangling=" + $ckVal + ";";
+
+		$currentOptions = $currentOptions + "exportPathMode=";
+		
+		if ( `radioButton -query -select expPathNameRd` == true ) {
+			$currentOptions = $currentOptions + "Name;";
+		} else if ( `radioButton -query -select expPathFullRd` == true ) {
+			$currentOptions = $currentOptions + "Full;";
+		} else if ( `radioButton -query -select expPathPrefixRd` == true ) {
+			$currentOptions = $currentOptions + "Prefix;";
+		} else {
+			$currentOptions = $currentOptions + "Auto;";
+		}
+		
+		string $prefix = `textField -query -text expPathPrefixTx`;
+		$currentOptions = $currentOptions + "exportPathPrefix=" + $prefix + ";";
+		
+		eval($resultCallback+" \""+$currentOptions+"\"");
+		$bResult = 1;
+	} else {
+		$bResult = 0;
+	}
+	
+	return $bResult;
+}
+
+global proc AddPath() {
+	string $texturePath = `textField -query -text nifTxPath`;
+	if ($texturePath != "") {
+		string $existingItems[] = `textScrollList -query -allItems nifPathList`;
+		for( $i = 0; $i < size($existingItems); $i++ ) {
+			if ( $existingItems[$i] == $texturePath ) {
+				textScrollList -edit -removeItem  $texturePath nifPathList;
+			}
+		}
+		textScrollList -edit -appendPosition 1 $texturePath -width 400 nifPathList;
+		textField -edit -text "" nifTxPath;
+	}
+}
+
+global proc SelectPath() {
+	string $selectedItem[] = `textScrollList -query -selectItem nifPathList`;
+	textField -edit -text $selectedItem[0] nifTxPath;
+}
+
+global proc DeletePath() {
+	int $selectedItem[] = `textScrollList -query -selectIndexedItem  nifPathList`;
+	if ( size($selectedItem) != 0 ) {
+		textScrollList -edit -removeIndexedItem  $selectedItem[0] nifPathList;
+	}
+}
+
+global proc ChangeSelectionExportOverviewTreeView(string $treeItem, int $state) {
+	global string $gNifExportedObjects[];
+	global int $gNifExportedObjectsValues[];
+	global string $gNifExportedObjectsTypes[];
+	
+	for($i = 0;$i < size($gNifExportedObjects); $i++) {
+		if($treeItem == $gNifExportedObjects[$i]) {
+			if($gNifExportedObjectsValues[$i] == 1) {
+				$gNifExportedObjectsValues[$i] = 0;
+				treeView -edit -buttonTextIcon $treeItem 1 "" overviewTreeView;
+			} else if($gNifExportedObjectsValues[$i] == 0) {
+				$gNifExportedObjectsValues[$i] = 1;
+				treeView -edit -buttonTextIcon $treeItem 1 "E" overviewTreeView;
+			}
+			break;
+		}
+	}
+}
+
+global proc int hasValidNifName(string $name) {
+	if($name == "front" || $name == "side" || $name == "top" || $name == "persp" ) return 0;
+	if($name == "Manipulator1" || $name == "ViewCompass" || $name == "groundPlane_transform") return 0;
+	
+	return 1;
+}
+
+// This procedure is called when the 'Open' button of the dialog is clicked.
+// The procedure recieves the name of the file and it's extension
+global proc int onOk(string $dirpath, string $type) {
+	textField -edit -text $dirpath nifTxPath;
+	return true;
+}	
